@@ -19,7 +19,11 @@ export const AuthPage = () => {
     useEffect(() => {
         message(error);
         clearErrors();
-    }, [error, message, clearErrors])
+    }, [error, message, clearErrors]);
+
+    useEffect(() => {
+        window.M.updateTextFields();
+    }, [])
 
     const changeHandler = (event) => {
         setForm({...form, [event.target.name]: event.target.value});
@@ -57,7 +61,7 @@ export const AuthPage = () => {
                                 <input
                                   name="email"
                                   onChange={changeHandler}
-                                  placeholder="email" id="email" type="text" className="validate" />
+                                  placeholder="email" id="email" type="email" className="validate" />
                                 <label htmlFor="email">Email</label>
                             </div>
 
@@ -65,7 +69,7 @@ export const AuthPage = () => {
                                 <input
                                   name="password"
                                   onChange={changeHandler}
-                                  placeholder="password" id="password" type="text" className="validate" />
+                                  placeholder="password" id="password" type="password" className="validate" />
                                 <label htmlFor="password">Password</label>
                             </div>
 
