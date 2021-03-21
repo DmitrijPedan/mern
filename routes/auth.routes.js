@@ -7,12 +7,13 @@ const {check, validationResult} = require("express-validator");
 const User = require('../models/User');
 const router = Router();
 
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
+const jsonParser = bodyParser.json();
 
 // /api/auth/register
 router.post(
     '/register',
-    urlencodedParser,
+    jsonParser,
     [
         check('email', 'incorrect email').isEmail(),
         check('password', 'incorrect password (min 6 symbols)').isLength({min: 6}),
@@ -63,7 +64,7 @@ router.post(
 // /api/auth/login
 router.post(
     '/login',
-    urlencodedParser,
+    jsonParser,
     [
       check('email', 'Please input correct email').normalizeEmail().isEmail(),
       check('password', 'Please input correct password').exists(),

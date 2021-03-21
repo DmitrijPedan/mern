@@ -1,1 +1,14 @@
 @import "~materialize-css/dist/css/materialize.min.css";
+
+.login-btn {
+    margin-right: 20px;
+}
+
+.card-title {
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+.input-field {
+    margin-bottom: 15px;
+}
